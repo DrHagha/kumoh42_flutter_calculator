@@ -28,20 +28,21 @@ class MaterialFlutterApp extends StatefulWidget{
 
 class _MaterialFlutterApp extends State<MaterialFlutterApp> {
 
-  double argument = 0;
-  int parameter = 0;
+  double argument = 0; //결과 값
+  int parameter = 0; // 가인수
+
+  String? selectedOper;
 
   var mainColor = Colors.yellow;
 
   Map<String, dynamic> operator = {
+    "All Clear" : "AC",
+    "EQUAL" : "=",
     "PLUS" : "+",
     "MINUS" : "-",
     "MULTIPLE" : "*",
     "DIVISION" : "/",
-    "REMAIN" : "%"
   };
-
-
 
   Widget build(BuildContext context){
 
@@ -68,16 +69,28 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                   Row(
                     children: <Widget>[
                       OutlinedButton(
-                        onPressed: (){},
-                        child: Text("AC"),
+                        onPressed: (){
+                          setState(() {
+                            argument = 0;
+                            parameter = 0;
+                            selectedOper = "";
+                          });
+                        },
+                        child: Text(operator["All Clear"]),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
                           fixedSize: Size(buttonWidth * 3,buttonheight)
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
-                        child: Text("/"),
+                        onPressed: (){
+                          setState(() {
+                            selectedOper = operator["DIVISION"];
+                            argument = parameter.toDouble();
+                            parameter = 0;
+                          });
+                        },
+                        child: Text(operator["DIVISION"]),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
                           fixedSize: Size(buttonWidth,buttonheight)
@@ -89,7 +102,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                   Row(
                     children: <Widget>[
                      OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10) + 1;
+                          });
+                        },
                         child: Text("1"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -97,7 +114,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10) + 2;
+                          });
+                        },
                         child: Text("2"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -105,7 +126,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10) + 3;
+                          });
+                        },
                         child: Text("3"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -113,8 +138,14 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
-                        child: Text("*"),
+                        onPressed: (){
+                          setState(() {
+                            selectedOper = operator["MULTIPLE"];
+                            argument = parameter.toDouble();
+                            parameter = 0;
+                          });
+                        },
+                        child: Text(operator["MULTIPLE"]),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
                           fixedSize: Size(buttonWidth,buttonheight)
@@ -126,7 +157,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                   Row(
                     children: <Widget>[
                      OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10) + 4;
+                          });
+                        },
                         child: Text("4"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -134,7 +169,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10) + 5;
+                          });
+                        },
                         child: Text("5"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -142,7 +181,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10) + 6;
+                          });
+                        },
                         child: Text("6"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -150,8 +193,14 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
-                        child: Text("+"),
+                        onPressed: (){
+                          setState(() {
+                            selectedOper = operator["PLUS"];
+                            argument = parameter.toDouble();
+                            parameter = 0;
+                          });
+                        },
+                        child: Text(operator["PLUS"]),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
                           fixedSize: Size(buttonWidth,buttonheight)
@@ -163,7 +212,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                   Row(
                     children: <Widget>[
                      OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10) + 7;
+                          });
+                        },
                         child: Text("7"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -171,7 +224,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10) + 8;
+                          });
+                        },
                         child: Text("8"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -179,7 +236,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10) + 9;
+                          });
+                        },
                         child: Text("9"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -187,8 +248,14 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                         ),
                       ),
                       OutlinedButton(
-                        onPressed: (){},
-                        child: Text("-"),
+                        onPressed: (){
+                          setState(() {
+                            selectedOper = operator["MINUS"];
+                            argument = parameter.toDouble();
+                            parameter = 0;
+                          });
+                        },
+                        child: Text(operator["MINUS"]),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
                           fixedSize: Size(buttonWidth,buttonheight)
@@ -200,7 +267,11 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                   Row(
                     children: <Widget>[
                      OutlinedButton(
-                        onPressed: (){},
+                        onPressed: (){
+                          setState(() {
+                            parameter = (parameter * 10);
+                          });
+                        },
                         child: Text("0"),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
@@ -209,8 +280,24 @@ class _MaterialFlutterApp extends State<MaterialFlutterApp> {
                       ),
                       
                       OutlinedButton(
-                        onPressed: (){},
-                        child: Text("*"),
+                        onPressed: (){
+                          setState(() {
+                            if(selectedOper == operator["PLUS"]){
+                              argument = parameter + argument;
+                            }else if(selectedOper == operator["MINUS"]){
+                              argument = parameter - argument;
+                            }else if(selectedOper == operator["MULTIPLE"]){
+                              argument = parameter * argument;
+                            }else if(selectedOper == operator["DIVISION"]){
+                              argument = parameter / argument;
+                            }else{
+                              argument = 0;
+                              parameter = 0;
+                            }
+                            parameter = 0;
+                          });
+                        },
+                        child: Text(operator["EQUAL"]),
                         style: OutlinedButton.styleFrom(
                           backgroundColor: mainColor,
                           fixedSize: Size(buttonWidth,buttonheight)
